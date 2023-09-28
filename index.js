@@ -14,15 +14,14 @@ function moveDodgerLeft() {
   });
     
   function moveDodgerRight() {
-    const rightNumbers = dodger.style.right.replace("px", "");
-    const right= parseInt(rightNumbers, 10);
-  
-    if (right < 0) {
-      dodger.style.left = `${left + 1}px`;
-    }
+
+    const dodger = document.getElementById('dodger');
+
+    const currentPosition = parseInt(dodger.style.left) || 0; 
+
+    const moveAmount = 10;
+
+    const newPosition = currentPosition + moveAmount;
+
+    dodger.style.left = newPosition + 'px';
   }
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "ArrowRight") {
-      moveDodgerRight();
-    }
-  });
